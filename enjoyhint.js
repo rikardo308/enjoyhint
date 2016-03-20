@@ -171,6 +171,11 @@ var EnjoyHint = function (_options) {
                     var offset = $element.offset();
                     var w = $element.outerWidth();
                     var h = $element.outerHeight();
+                    if($element.is("rect")){
+                        var rect = $element[0].getBoundingClientRect();
+                        w = rect.width;
+                        h = rect.height;
+                    }
                     var shape_margin = (step_data.margin !== undefined) ? step_data.margin : 10;
                     var coords = {
                         x: offset.left + Math.round(w / 2) ,
